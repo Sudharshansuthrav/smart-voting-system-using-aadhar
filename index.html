@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Voting System | Aadhaar Based</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="d:\resume\smart\logo.jpg" alt="">
+            <div class="logo-text">
+                <h1>e-Voting System</h1>
+                <p>Powered by Aadhaar Authentication</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#instructions">Instructions</a></li>
+                <li><a href="#status">Election Status</a></li>
+                <li><a href="#helpdesk">Helpdesk</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Secure. Transparent. Efficient.</h1>
+            <p>Exercise your right to vote with our Aadhaar-based e-Voting System. Ensuring secure, transparent, and efficient elections.</p>
+            <button id="loginBtn" class="primary-btn">Login with Aadhaar</button>
+        </div>
+        <img src="banner.jpg" alt="Voting Illustration" class="hero-image">
+    </section>
+
+    <section id="features">
+        <h2>Key Features</h2>
+        <div class="features-container">
+            <div class="feature-card">
+                <i class="fas fa-fingerprint feature-icon"></i>
+                <h3>Biometric Authentication</h3>
+                <p>Secure your vote with Aadhaar biometric verification</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <h3>End-to-End Encryption</h3>
+                <p>Your vote is encrypted and protected from tampering</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-clock feature-icon"></i>
+                <h3>Instant Results</h3>
+                <p>Real-time counting and transparent result declaration</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-universal-access feature-icon"></i>
+                <h3>Accessible Voting</h3>
+                <p>Vote from anywhere with internet connectivity</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Aadhaar Authentication</h3>
+                    <p>Login using your Aadhaar number and verify your identity with OTP or biometric authentication</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Verification</h3>
+                    <p>System verifies your voting eligibility and constituency based on Aadhaar details</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Vote</h3>
+                    <p>Cast your vote securely from the digital ballot with just a few clicks</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Confirmation</h3>
+                    <p>Receive a digital receipt confirming your vote has been cast successfully</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="statistics">
+        <h2>Election Statistics</h2>
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>650M+</h3>
+                <p>Eligible Voters</p>
+            </div>
+            <div class="stat-card">
+                <h3>543</h3>
+                <p>Constituencies</p>
+            </div>
+            <div class="stat-card">
+                <h3>99.9%</h3>
+                <p>System Uptime</p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p>Data Encryption</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Login with Aadhaar</h2>
+            <div class="auth-container">
+                <div class="auth-step active" id="step1">
+                    <form id="aadhaarForm">
+                        <div class="form-group">
+                            <label for="aadhaarNumber">Aadhaar Number</label>
+                            <input type="text" id="aadhaarNumber" pattern="[0-9]{12}" maxlength="12" placeholder="Enter your 12-digit Aadhaar number" required>
+                        </div>
+                        <button type="submit" class="primary-btn">Continue</button>
+                    </form>
+                </div>
+                
+                <div class="auth-step" id="step2">
+                    <h3>Verify Your Identity</h3>
+                    <div class="verification-options">
+                        <div class="option" id="otpOption">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>OTP Verification</h4>
+                            <p>Receive OTP on your registered mobile number</p>
+                            <button class="secondary-btn verify-btn" id="requestOTP">Request OTP</button>
+                        </div>
+                        <div class="option" id="biometricOption">
+                            <i class="fas fa-fingerprint"></i>
+                            <h4>Biometric Verification</h4>
+                            <p>Use fingerprint or iris scan for verification</p>
+                            <button class="secondary-btn verify-btn" id="useBiometric">Use Biometric</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="auth-step" id="step3">
+                    <div id="otpVerification">
+                        <h3>Enter OTP</h3>
+                        <p>Please enter the 6-digit OTP sent to your registered mobile number</p>
+                        <div class="otp-container">
+                            <input type="text" class="otp-input" maxlength="1" pattern="[0-9]">
+                            <input type="text" class="otp-input" maxlength="1" pattern="[0-9]">
+                            <input type="text" class="otp-input" maxlength="1" pattern="[0-9]">
+                            <input type="text" class="otp-input" maxlength="1" pattern="[0-9]">
+                            <input type="text" class="otp-input" maxlength="1" pattern="[0-9]">
+                            <input type="text" class="otp-input" maxlength="1" pattern="[0-9]">
+                        </div>
+                        <p id="otpTimer">Resend OTP in <span id="countdown">60</span> seconds</p>
+                        <button class="primary-btn" id="verifyOTP">Verify OTP</button>
+                    </div>
+                    
+                    <div id="biometricVerification" style="display: none;">
+                        <h3>Biometric Verification</h3>
+                        <p>Please place your finger on the fingerprint scanner</p>
+                        <div class="fingerprint-container">
+                            <i class="fas fa-fingerprint scanning"></i>
+                            <div class="scan-line"></div>
+                        </div>
+                        <p id="scanStatus">Scanning...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voting Modal -->
+    <div id="votingModal" class="modal">
+        <div class="modal-content voting-content">
+            <div class="voter-info">
+                <h3>Voter Information</h3>
+                <div class="voter-details">
+                    <p><strong>Name:</strong> <span id="voterName">John Doe</span></p>
+                    <p><strong>Voter ID:</strong> <span id="voterId">ABC1234567</span></p>
+                    <p><strong>Constituency:</strong> <span id="constituency">South Delhi</span></p>
+                </div>
+            </div>
+            
+            <h2>Cast Your Vote</h2>
+            <p class="vote-instruction">Please select ONE candidate by clicking on their symbol</p>
+            
+            <div class="candidates-container">
+                <div class="candidate-card">
+                    <div class="party-symbol">
+                        <img src="candi1.png" alt="Party Symbol">
+                    </div>
+                    <h4>Progress Alliance</h4>
+                    <p>Meredith Vega</p>
+                    <button class="vote-btn" data-candidate="1">Vote</button>
+                </div>
+                
+                <div class="candidate-card">
+                    <div class="party-symbol">
+                        <img src="candi2.png" alt="Party Symbol"><br>
+                    </div>
+                    <h4>Unity Coalition</h4>
+                    <p>Jackson Thornton</p>
+                    <button class="vote-btn" data-candidate="2">Vote</button>
+                </div>
+                
+                <div class="candidate-card">
+                    <div class="party-symbol">
+                        <img src="candi3.png" alt="Party Symbol">
+                    </div>
+                    <h4>Prosperity Forum</h4>
+                    <p>Eliza Ramsey</p>
+                    <button class="vote-btn" data-candidate="3">Vote</button>
+                </div>
+                
+                <div class="candidate-card">
+                    <div class="party-symbol">
+                        <img src="candi4.png" alt="Party Symbol">
+                    </div>
+                    <h4>Citizens'Reform</h4>
+                    <p>Dominic Chen</p>
+                    <button class="vote-btn" data-candidate="4">Vote</button>
+                </div>
+                
+                <div class="candidate-card nota">
+                    <div class="party-symbol">
+                        <img src="d:\resume\smart\nota.jpg" alt="Party Symbol">
+                    </div>
+                    <h4>NOTA</h4>
+                    <p>None of the Above</p>
+                    <button class="vote-btn" data-candidate="nota">Vote</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <!-- Confirmation Modal -->
+<div id="confirmationModal" class="modal">
+    <div class="modal-content confirmation-content">
+        <h2>Confirm Your Vote</h2>
+        <p>You are about to cast your vote for:</p>
+        <div class="vote-confirmation">
+            <div class="party-symbol-large">
+                <img id="confirmSymbol" src="" alt="Party Symbol" style="display:none; width:60px; height:60px;">
+            </div>
+            <div class="confirm-details">
+                <h3 id="confirmParty">Party A</h3>
+                <p id="confirmCandidate">Candidate Name 1</p>
+            </div>
+        </div>
+        <p class="warning">This action cannot be undone. Please confirm your selection.</p>
+        <div class="confirmation-buttons">
+            <button id="cancelVote" class="secondary-btn">Go Back</button>
+            <button id="confirmVote" class="primary-btn">Confirm Vote</button>
+        </div>
+    </div>
+</div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Vote Cast Successfully!</h2>
+            <p>Your vote has been securely recorded in our blockchain-based system.</p>
+            <div class="transaction-info">
+                <p><strong>Transaction ID:</strong> <span id="transactionId">0xd4e8a6c9b7f5e3d2a1c0b9f8e7d6a5c4b3a2f1e0</span></p>
+                <p><strong>Timestamp:</strong> <span id="timestamp">May 01, 2025 10:45:12 IST</span></p>
+            </div>
+            <p class="info-text">A receipt has been sent to your registered mobile number.</p>
+            <button id="finishVoting" class="primary-btn">Finish</button>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p style="text-align: center;">&copy; 2025 Election Commission of India. All rights reserved.</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
